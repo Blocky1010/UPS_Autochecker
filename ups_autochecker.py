@@ -14,7 +14,7 @@ file_name = 'client_key.json'
 creds = ServiceAccountCredentials.from_json_keyfile_name(file_name,scope)
 client = gspread.authorize(creds)
 
-sheet = client.open('Shipments').sheet1
+sheet = client.open('Shipments').sheet1 #Takes up to 5 seconds to open ( maybe leave it open )
 expected_headers = ['NAME', 'Shipping country', 'Destination COUNTRY (CITY)', 'LABEL CREATED DATE', 'Pickup / Drop off date', 'LABEL NUMBER', 'DESCRIPTION', 'STATUS', 'People Working', 'Instructions( for bot )']
 
 python_sheet = sheet.get_all_records(expected_headers=expected_headers)
